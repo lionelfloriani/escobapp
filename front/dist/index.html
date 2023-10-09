@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EscobApp</title>
+    <script type="module" crossorigin src="assets/main.f788c517.js"></script>
+    <link rel="stylesheet" href="assets/main.357476be.css">
+  </head>
+  <body>
+    <div id="mainContainer" class="flex h-full w-full flex-col p-14">
+      <div id="top" class="flex h-1/6 flex-col items-center justify-center border">
+        <div id="containerTop" class="h-full w-2/5 border p-4">
+          <div id="tittle" class="flex h-2/3 items-center justify-center border">EscobApp</div>
+          <div id="underTitle" class="flex h-1/3 items-center justify-center gap-6 border">
+            <div class="flex gap-2">
+              <div>Game</div>
+              <div id="gameCount">0</div>
+            </div>
+            <div>|</div>
+            <div class="flex gap-2">
+              <div>Round</div>
+              <div id="roundCount">0</div>
+            </div>
+            <div>|</div>
+            <div class="flex gap-2">
+              <div>Turn</div>
+              <div id="turnCount">0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="bot" class="flex h-5/6 items-center justify-center border">
+        <div id="containerBot" class="flex h-full w-full border p-4">
+          <div id="turnContainer" class="m-5 flex w-1/3 flex-col items-center justify-center border">
+            <div id="turnDisplay" class="h-full w-full border">
+              <div class="flex h-1/5 w-full justify-center gap-72 border">
+                <div class="flex flex-col items-center justify-center">
+                  <div>CAMI</div>
+                  <div id="scoreRoundCami">0</div>
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                  <div>LILI</div>
+                  <div id="scoreRoundLili">0</div>
+                </div>
+              </div>
+              <div id="preventClick">
+                <div class="flex flex-col items-center justify-center gap-4 border p-3">
+                  <div>Cards</div>
+                  <div class="flex gap-40">
+                    <input type="radio" id="cardsCami" name="cards" value="cami" />
+                    <input type="radio" id="cardsDraw" name="cards" value="draw" checked="checked" />
+                    <input type="radio" id="cardsLili" name="cards" value="lili" />
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center gap-4 border p-3">
+                  <div>Hearts</div>
+                  <div class="flex gap-40">
+                    <input type="radio" id="heartsCami" name="hearts" value="cami" />
+                    <input type="radio" id="heartsDraw" name="hearts" value="draw" checked="checked" />
+                    <input type="radio" id="heartsLili" name="hearts" value="lili" />
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center gap-4 border p-3">
+                  <div>Sevens</div>
+                  <div class="flex gap-40">
+                    <input type="radio" id="sevensCami" name="sevens" value="cami" />
+                    <input type="radio" id="sevensDraw" name="sevens" value="draw" checked="checked" />
+                    <input type="radio" id="sevensLili" name="sevens" value="lili" />
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center gap-4 border p-3">
+                  <div>7 of heart</div>
+                  <div class="flex gap-40">
+                    <input type="radio" id="sevenHeartCami" name="sevenHeart" value="cami" />
+                    <input type="radio" id="sevenHeartLili" name="sevenHeart" value="lili" />
+                  </div>
+                </div>
+                <div class="flex flex-col items-center justify-center gap-4 border p-5">
+                  <div>Escoba</div>
+                  <div class="flex gap-80">
+                    <div>
+                      <select name="escobaCami" id="escobaCami">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                    <div>
+                      <select name="escobaLili" id="escobaLili">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-center p-4">
+                <button class="border p-2" id="turnButton">Next turn</button>
+                <button class="border p-2" id="roundButton">Next round</button>
+              </div>
+            </div>
+          </div>
+          <div id="roundContainer" class="m-5 flex w-1/3 flex-col items-center justify-center border">
+            <div id="roundDisplay" class="mb-44 h-full w-full border">
+              <div id="roundOne" class="flex h-1/3 w-full items-center justify-center gap-10 border">
+                <div class="flex w-1/3 justify-center">Round 1</div>
+                <div class="-ml-20">|</div>
+                <div class="flex w-2/3 gap-10">
+                  <div id="roundOneName">XXXX</div>
+                  <div class="flex gap-2">
+                    <div id="winRoundOne">00</div>
+                    <div>-</div>
+                    <div id="looseRoundOne">00</div>
+                  </div>
+                </div>
+              </div>
+              <div id="roundTwo" class="flex h-1/3 w-full items-center justify-center gap-10 border">
+                <div class="flex w-1/3 justify-center">Round 2</div>
+                <div class="-ml-20">|</div>
+                <div class="flex w-2/3 gap-10">
+                  <div id="roundTwoName">XXXX</div>
+                  <div class="flex gap-2">
+                    <div id="winRoundTwo">00</div>
+                    <div>-</div>
+                    <div id="looseRoundTwo">00</div>
+                  </div>
+                </div>
+              </div>
+              <div id="roundThree" class="flex h-1/3 w-full items-center justify-center gap-10 border">
+                <div class="flex w-1/3 justify-center">Round 3</div>
+                <div class="-ml-20">|</div>
+                <div class="flex w-2/3 gap-10">
+                  <div id="roundThreeName">XXXX</div>
+                  <div class="flex gap-2">
+                    <div id="winRoundThree">00</div>
+                    <div>-</div>
+                    <div id="looseRoundThree">00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-center p-4">
+                <button class="border p-2" id="gameButton">Validate</button>
+                <button class="border p-2" id="resetButton">Reset</button>
+              </div>
+            </div>
+          </div>
+          <div id="statContainer" class="flex w-1/3 flex-col items-center justify-center border">
+            <div class="flex h-1/3 w-full border">
+              <div class="flex w-2/5 flex-col border">
+                <div class="flex h-1/2 items-center justify-center border">
+                  <div id="winOne" class="flex h-full w-1/2 items-center justify-center border">0</div>
+                  <div class="flex h-full w-1/2 items-center justify-center border">👑</div>
+                </div>
+                <div class="flex h-1/2 flex-col items-center justify-center border">
+                  <div class="flex gap-2">
+                    <div class="flex items-center justify-center">Escoba :</div>
+                    <div class="flex items-center justify-center gap-2">
+                      <div id="escobaOne">0</div>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="flex items-center justify-center">Points :</div>
+                    <div class="flex items-center justify-center gap-2">
+                      <div id="pointsOne">0</div>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="flex items-center justify-center">Rounds :</div>
+                    <div class="flex items-center justify-center gap-2">
+                      <div id="roundsOne">0</div>
+                      <div>/</div>
+                      <div id="totalRoundsOne">0</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex w-3/5 flex-col items-center justify-center gap-2 border">
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center" id="nameOne"></div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Cards :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageCardsOne"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="cardsOne">0</div>
+                        <div>/</div>
+                        <div id="totalCardsOne">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Hearts :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageHeartsOne"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="heartsOne">0</div>
+                        <div>/</div>
+                        <div id="totalHeartsOne">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Sevens :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageSevensOne"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="sevensOne">0</div>
+                        <div>/</div>
+                        <div id="totalSevensOne">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Seven Heart :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageSevenHeartOne"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="sevenHeartOne">0</div>
+                        <div>/</div>
+                        <div id="totalSevenHeartOne">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex h-1/3 w-full border">
+              <div class="flex w-2/5 flex-col border">
+                <div class="flex h-1/2 items-center justify-center border">
+                  <div id="winTwo" class="flex h-full w-1/2 items-center justify-center border">0</div>
+                  <div class="flex h-full w-1/2 items-center justify-center border">👑</div>
+                </div>
+                <div class="flex h-1/2 flex-col items-center justify-center border">
+                  <div class="flex gap-2">
+                    <div class="flex items-center justify-center">Escoba :</div>
+                    <div class="flex items-center justify-center gap-2">
+                      <div id="escobaTwo">0</div>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="flex items-center justify-center">Points :</div>
+                    <div class="flex items-center justify-center gap-2">
+                      <div id="pointsTwo">0</div>
+                    </div>
+                  </div>
+                  <div class="flex gap-2">
+                    <div class="flex items-center justify-center">Rounds :</div>
+                    <div class="flex items-center justify-center gap-2">
+                      <div id="roundsTwo">0</div>
+                      <div>/</div>
+                      <div id="totalRoundsTwo">0</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex w-3/5 flex-col items-center justify-center gap-2 border">
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center" id="nameTwo"></div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Cards :</div>
+                  <div class="flex items-center justify-center">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageCardsTwo"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="cardsTwo">0</div>
+                        <div>/</div>
+                        <div id="totalCardsTwo">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Hearts :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageHeartsTwo"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="heartsTwo">0</div>
+                        <div>/</div>
+                        <div id="totalHeartsTwo">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Sevens :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageSevensTwo"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="sevensTwo">0</div>
+                        <div>/</div>
+                        <div id="totalSevensTwo">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Seven Heart :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageSevenHeartTwo"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="sevenHeartTwo">0</div>
+                        <div>/</div>
+                        <div id="totalSevenHeartTwo">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="h-1/3 w-full border">
+              <div class="flex h-full w-full flex-col items-center justify-center gap-2 border">
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Draws</div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Cards :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageCardsDraw"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="cardsDrawDisplay">0</div>
+                        <div>/</div>
+                        <div id="totalCardsDraw">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Hearts :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageHeartsDraw"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="heartsDrawDisplay">0</div>
+                        <div>/</div>
+                        <div id="totalHeartsDraw">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex gap-2">
+                  <div class="flex items-center justify-center">Sevens :</div>
+                  <div class="flex items-center justify-center gap-2">
+                    <div class="flex gap-1">
+                      <div class="flex gap-1">
+                        <div class="flex gap-1">
+                          <div id="percentageSevensDraw"></div>
+                          <div>%</div>
+                        </div>
+                        <div>(</div>
+                        <div id="sevensDrawDisplay">0</div>
+                        <div>/</div>
+                        <div id="totalSevensDraw">0</div>
+                        <div>)</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
